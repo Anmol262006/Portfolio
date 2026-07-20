@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+
+
+
+nav{
+font-family: "New Rocker", sans-serif;
+}
+  
+
+
+
+.buttonBorder {
+
+    border: 1px solid #8B5CF6;
+     animation: borderChange 5s linear infinite;
+
+}
+
+.navitem {
+    animate : borderMove 5s linear
+}
+
+@keyframes borderChange {
+
+    0%{
+        border-color: #8B5CF6;
+    }
+
+    50%{
+        border-color : rgba(255, 150, 250, 0.7)
+    }
+
+    100%{
+        border-color: #11139f;
+    }
+
+}
+
+
+@keyframes borderMove {
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    100%{
+        background-position:300% 50%;
+    }
+
+}
+
+
+@keyframes borderBottom {
+    0%{
+        border-color: #8B5CF6;
+        border-bottom-width: 5px
+    } 
+    
+    100%{
+        border-color: #11139f;
+        border-width: 100px
+    }
+
+}
+
+
+
+
+
+
+
+
+
