@@ -22,12 +22,13 @@ import ContentCard from "../components/ui/ContentCard";
 import ChannelCard from "../components/ui/ChannelCard";
 import PlatformLogo from "../components/ui/platformLogo";
 
-const ContactSection = forwardRef((props , ref) => {
+const ContactSection = forwardRef((props, ref) => {
   return (
-    <section 
-    id="Contact"
-    ref={ref}
-    className="flex flex-col lg:flex-row  h-fit">
+    <section
+      id="Contact"
+      ref={ref}
+      className="flex flex-col lg:flex-row  h-fit"
+    >
       {/* {Right Section} */}
       <div className="px-10 py-6 flex flex-col  gap-7 lg:max-w-1/2 w-full">
         <ContentCard
@@ -70,10 +71,24 @@ const ContactSection = forwardRef((props , ref) => {
         <h1>Connect with me</h1>
 
         <div className="flex gap-4">
-          <PlatformLogo Logo={<RiGithubFill size={28} />} url={"https://github.com/Anmol262006/"} />
-          <PlatformLogo Logo={<RiInstagramLine size={28} color={"purple"} />}  url={"https://www.instagram.com/anmoll_2005_26/"} />
-          <PlatformLogo Logo={<RiLinkedinBoxFill size={28} color="blue" />} url={"https://www.linkedin.com/in/anmol-kumar-725022262/"} />
-          <PlatformLogo Logo={<RiWhatsappFill size={28} color="green" />}  url={"https://wa.me/918091308651?text=Hi%20Anmol%2C%20I%20saw%20your%20portfolio!"} />
+          <PlatformLogo
+            Logo={<RiGithubFill size={28} />}
+            url={"https://github.com/Anmol262006/"}
+          />
+          <PlatformLogo
+            Logo={<RiInstagramLine size={28} color={"purple"} />}
+            url={"https://www.instagram.com/anmoll_2005_26/"}
+          />
+          <PlatformLogo
+            Logo={<RiLinkedinBoxFill size={28} color="blue" />}
+            url={"https://www.linkedin.com/in/anmol-kumar-725022262/"}
+          />
+          <PlatformLogo
+            Logo={<RiWhatsappFill size={28} color="green" />}
+            url={
+              "https://wa.me/918091308651?text=Hi%20Anmol%2C%20I%20saw%20your%20portfolio!"
+            }
+          />
           <PlatformLogo Logo={<Ri24HoursLine size={28} />} />
         </div>
       </div>

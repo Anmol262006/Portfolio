@@ -91,21 +91,26 @@ const LeftContentSection = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
       >
-        <motion.button 
+        <motion.a 
+          href="https://github.com/Anmol262006/"
+          target="_blank"
+          rel="noopener noreferrer"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}
           className="w-full sm:w-auto rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-8 py-4 text-white font-semibold shadow-md shadow-violet-600/20 transition-all"
         >
           View My Work
-        </motion.button>
+        </motion.a>
 
-        <motion.button 
+        <motion.a 
+           href="/resume.pdf" 
+           target="_blank"
           whileHover={{ scale: 1.05, backgroundColor: "#000000", color: "#ffffff" }}
           whileTap={{ scale: 0.98 }}
           className="w-full sm:w-auto rounded-xl border border-black px-8 py-4 font-semibold text-black transition-colors duration-300"
         >
           Download Resume
-        </motion.button>
+        </motion.a>
       </motion.div>
 
     </div>
