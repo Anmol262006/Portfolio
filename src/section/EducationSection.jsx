@@ -1,4 +1,4 @@
-import React from "react";
+import React,{forwardRef} from "react";
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaSchool, FaUniversity } from "react-icons/fa";
 import ContentCard from "../components/ui/ContentCard.jsx";
@@ -9,7 +9,7 @@ const educationData = [
     institution: "Minerva College of Education, Indora",
     duration: "2023 - 2026",
     score: "7.97 CGPA",
-    icon: <FaUniversity className="text-2xl text-purple-600" />,
+    icon: <FaUniversity className="text-2xl text-gray-800" />,
     color: "#8b5cf6", // Violet-500
   },
   {
@@ -17,7 +17,7 @@ const educationData = [
     institution: "G.S.S.S Kakira",
     duration: "2021 - 2023",
     score: "80.4%",
-    icon: <FaGraduationCap className="text-2xl text-purple-600" />,
+    icon: <FaGraduationCap className="text-2xl text-gray-800" />,
     color: "#a855f7", // Purple-500
   },
   {
@@ -25,12 +25,12 @@ const educationData = [
     institution: "Sai Public High School, Nainikhad",
     duration: "2019 - 2021",
     score: "96.5%",
-    icon: <FaSchool className="text-2xl text-purple-600" />,
-    color: "#c084fc", // Purple-400
+    icon: <FaSchool className="text-2xl text-gray-800" />,
+    color: "#a855f7", // Purple-400
   },
 ];
 
-const EducationSection = () => {
+const EducationSection = forwardRef((props,ref) => {
   // Container orchestrates the staggered cascade of timeline items
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -51,7 +51,10 @@ const EducationSection = () => {
   };
 
   return (
-    <section className="min-h-screen text-zinc-950 py-16 font-[Yuyu] max-w-7xl mx-auto overflow-x-hidden">
+    <section
+     ref={ref}
+     id="Education"
+     className="min-h-screen text-zinc-950 py-16 font-[Yuyu] max-w-7xl mx-auto overflow-x-hidden">
     
       <motion.div
         initial={{ opacity: 0, x: -100 }}
@@ -155,6 +158,6 @@ const EducationSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default React.memo(EducationSection);

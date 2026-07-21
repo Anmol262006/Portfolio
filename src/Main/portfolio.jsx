@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useEffect } from "react";
 import { lazy, Suspense } from "react";
 import Navbar from "../components/layout/Navbar";
 import HeroSkeleton from "../components/ui/Heroskeleton";
@@ -12,6 +12,56 @@ const Footer = lazy(() => import("../section/Footer"))
 
 const portfolio = () => {
   const [nav, setNav] = useState("Home");
+
+useEffect(() => {
+  const observed = new Set();
+
+  console.log(observed)
+
+  const intersectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setNav(entry.target.id);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "-40% 0px -40% 0px",
+      threshold: 0,
+    }
+  );
+
+  console.log(intersectionObserver)
+
+  // Jo sections already DOM me hain unhe turant observe karo
+  const observeExisting = () => {
+    document.querySelectorAll("section[id]").forEach((section) => {
+      if (!observed.has(section)) {
+        intersectionObserver.observe(section);
+        observed.add(section);
+      }
+    });
+  };
+
+  observeExisting(); // agar kuch already mount ho chuka ho
+
+  // Naye sections (jo lazy load ke baad aayenge) ko track karo
+  const mutationObserver = new MutationObserver(() => {
+    observeExisting();
+  });
+
+  mutationObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  return () => {
+    intersectionObserver.disconnect();
+    mutationObserver.disconnect();
+  };
+}, []);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React , {forwardRef} from "react";
 import { motion } from "framer-motion";
 import { frontendSkills, backendSkills, basicKnowledge } from "../data/data.js";
 import SkillCard from "../components/ui/SkillCard.jsx";
@@ -8,7 +8,7 @@ import ContentCard from "../components/ui/ContentCard.jsx";
 import { HiOutlineCode } from "react-icons/hi";
 import { FaFolder } from "react-icons/fa6";
 
-const SkillsSection = () => {
+const SkillsSection = forwardRef((props,ref) => {
   // Left side animation variant (slides from/to left off-screen)
   const leftContentVariants = {
     hidden: { opacity: 0, x: -100 },
@@ -30,7 +30,10 @@ const SkillsSection = () => {
   };
 
   return (
-    <section className="min-h-screen text-zinc-950 py-12 font-[Yuyu] mt-7 max-w-7xl mx-auto overflow-x-hidden">
+    <section
+    id="Skills"
+    ref={ref}
+    className="min-h-screen text-zinc-950 py-12 font-[Yuyu] mt-7 max-w-7xl mx-auto overflow-x-hidden">
       {/* Upper Content and Stats Block Container */}
       <div className="flex lg:flex-row flex-col justify-between px-4 lg:px-7 gap-8 items-stretch">
         
@@ -65,9 +68,9 @@ const SkillsSection = () => {
             numberprojects={"2+"}
             technumbers={"12+"}
             techorSkills={"Skills"}
-            icon={<HiOutlineCode className="text-4xl text-violet-700" />}
-            iconTech={<HiOutlineCode className="text-4xl text-violet-700" />}
-            iconProjects={<FaFolder className="text-4xl text-violet-700"/>}
+            icon={<HiOutlineCode className="text-4xl text-black" />}
+            iconTech={<HiOutlineCode className="text-4xl text-black" />}
+            iconProjects={<FaFolder className="text-4xl  text-black"/>}
           />
         </motion.div>
       </div>
@@ -97,6 +100,6 @@ const SkillsSection = () => {
       </div>
     </section>
   );
-};
+})  ;
 
 export default React.memo(SkillsSection);

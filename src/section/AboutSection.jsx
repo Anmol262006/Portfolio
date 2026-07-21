@@ -1,4 +1,4 @@
-import React from "react";
+import React , {forwardRef} from "react";
 import About from "../assets/about.webp";
 import ContentCard from "../components/ui/ContentCard";
 import StatsCard from "../components/ui/StatsCard";
@@ -9,7 +9,7 @@ import { GrDeploy } from "react-icons/gr";
 import { IoIosMail , IoIosCall } from "react-icons/io";
 import { motion } from "framer-motion";
 
-const AboutSection = () => {
+const AboutSection = forwardRef((props,ref) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,7 +49,10 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="relative h-fit w-full overflow-hidden px-5 py-10">
+    <section
+      id="About"
+      ref={ref}
+     className="relative h-fit w-full overflow-hidden px-5 py-10">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -84,9 +87,9 @@ const AboutSection = () => {
               numberprojects={"12+"}
               technumbers={"8+"}
               techorSkills={"techs"}
-              iconTech={<HiOutlineCode className="lg:text-6xl text-5xl text-violet-900" />}
-              iconProjects={<FaFolder className="lg:text-6xl text-5xl text-violet-900" />}
-              deployed={<GrDeploy className="lg:text-6xl text-5xl text-violet-900" />}
+              iconTech={<HiOutlineCode className="lg:text-6xl text-5xl text-black" />}
+              iconProjects={<FaFolder className="lg:text-6xl text-5xl text-black" />}
+              deployed={<GrDeploy className="lg:text-6xl text-5xl text-black" />}
               deployedCount={"2"}
             />
           </motion.div>
@@ -104,13 +107,13 @@ const AboutSection = () => {
                 initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.4, duration: 0.9 }}
-                className="font-bold text-white bg-violet-800 px-4 py-1 rounded-2xl text-center shadow-sm"
+                className="font-bold text-white bg-black px-4 py-1 rounded-2xl text-center shadow-sm"
               >
                 Always Learning
               </motion.span>
             </div>  
 
-            <div className="flex items-center justify-center bg-violet-700 relative overflow-hidden group cursor-pointer">
+            <div className="flex items-center justify-center bg-gray-900 relative overflow-hidden group cursor-pointer">
               <motion.div whileHover={{ scale: 1.15, rotate: 10 }} whileTap={{ scale: 0.95 }}>
                 <GrDeploy className="text-white text-5xl sm:text-6xl" />
               </motion.div>
@@ -204,6 +207,6 @@ const AboutSection = () => {
       </motion.div>
     </section>
   );
-};
+});
 
 export default AboutSection;

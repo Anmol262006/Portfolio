@@ -1,11 +1,11 @@
 import React from 'react'
 
-const platformLogo = ({Logo}) => {
+const platformLogo = ({Logo , url}) => {
   return (
-   <span className="border-2 border-purple-700 rounded-full p-2">
+   <a href={url} target='_blank' className="border-2 border-purple-700 rounded-full p-2">
        {Logo}
-     </span>
+     </a>
   )
 }
 
-export default platformLogo
+export default platformLogo;

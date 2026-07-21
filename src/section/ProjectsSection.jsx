@@ -1,4 +1,4 @@
-import React from "react";
+import React,{forwardRef} from "react";
 import ContentCard from "../components/ui/ContentCard";
 import StatsCard from "../components/ui/StatsCard";
 import { HiOutlineCode } from "react-icons/hi";
@@ -50,9 +50,12 @@ const projects = [
 ];
 
 
-const ProjectsSection = () => {
+const ProjectsSection = forwardRef((props , ref) => {
   return (
-    <div className="font-[Yuyu]">
+    <section
+    ref={ref}
+     id="Projects"
+    className="font-[Yuyu]">
       <div className="flex flex-col lg:flex-row  justify-between px-7 py-4 gap-5">
         <ContentCard
           capsuleData={"Projects"}
@@ -161,8 +164,8 @@ const ProjectsSection = () => {
   </div>
 </Swiper>
 
-    </div>
+    </section>
   );
-};
+});
 
 export default ProjectsSection;

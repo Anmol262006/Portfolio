@@ -1,4 +1,4 @@
-import React from "react";
+import React , {forwardRef} from "react";
 import { lazy, Suspense } from "react";
 import LeftContentSection from "../components/layout/LeftContentSection";
 import HeroSkeleton from "../components/ui/ImageSkeleton";
@@ -8,10 +8,10 @@ const ImageContainer = lazy(
   () => import("../components/layout/ImageContainer"),
 );
 
-const HeroSection = () => {
+const HeroSection = forwardRef((props,ref) => {
   return (
     <section
-      
+      id="Home"
      className="flex lg:flex-row flex-col-reverse justify-between lg:top-10 top-[100px] relative h-fit lg:px-20 px-7">
       {/* LEFT SIDE */}
 
@@ -28,6 +28,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+});
 
 export default HeroSection;

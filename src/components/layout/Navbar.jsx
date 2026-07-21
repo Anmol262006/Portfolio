@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../App.css";
 import { HiOutlineMenuAlt3, HiOutlineX } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../../App.css";
 
 const Navbar = ({ nav, setNav }) => {
@@ -10,8 +10,9 @@ const Navbar = ({ nav, setNav }) => {
   const navItems = [
     "Home",
     "Skills",
-    "About",
     "Projects",
+    "About",
+    "Education",
     "Contact",
   ];
 
@@ -45,28 +46,31 @@ const Navbar = ({ nav, setNav }) => {
                   ${nav === item ? `text-purple-800 duration-300 ` : `text-black`}`}
                 onClick={() => {
                   setNav(item);
-                  console.log(nav);
+                  const section = document.getElementById(item);
+                  if (section) {
+                    section.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
                 }}
               >
                 {item}
 
-                
-
-  <span
-    className={`absolute bottom-0 left-0 h-[2px] w-full origin-left bg-purple-900 transition-transform duration-300 ease-out ${
-      nav === item ? "scale-x-100" : "scale-x-0"
-    }`}
-  />
-                
+                <span
+                  className={`absolute bottom-0 left-0 h-[2px] w-full origin-left bg-purple-900 transition-transform duration-300 ease-out ${
+                    nav === item ? "scale-x-100" : "scale-x-0"
+                  }`}
+                />
               </li>
             ))}
           </ul>
 
           {/* Desktop Button */}
-          <button className="hidden rounded-2xl border border-white/20 bg-gradient-to-r from-black to-purple-900 px-5 py-2 text-white transition hover:scale-105 lg:block">
+          <a href='https://www.linkedin.com/in/anmol-kumar-725022262/' target="_blank" rel="noopener noreferrer" className="hidden rounded-2xl border border-white/20 bg-gradient-to-r from-black to-purple-900 px-5 py-2 text-white transition hover:scale-105 lg:block" >
             Let's Connect
             <span className="text-purple-300"> &gt;</span>
-          </button>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
@@ -97,15 +101,26 @@ const Navbar = ({ nav, setNav }) => {
             <div
               key={item}
               className="cursor-pointer text-gray-300 transition hover:text-violet-400"
-              onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setNav(item);
+                   setIsOpen(false);
+                  const section = document.getElementById(item);
+                  if (section) {
+                    section.scrollIntoView({
+                      behavior: "smooth",
+                      block: "start",
+                    });
+                  }
+                }}
             >
               {item}
             </div>
           ))}
 
-          <button className="mt-8 rounded-xl bg-gradient-to-r from-violet-600 to-blue-600 px-8 py-3 text-white">
+            <a href='https://www.linkedin.com/in/anmol-kumar-725022262/' target="_blank" rel="noopener noreferrer" className="hidden rounded-2xl border border-white/20 bg-gradient-to-r from-black to-purple-900 px-5 py-2 text-white transition hover:scale-105 lg:block" >
             Let's Connect
-          </button>
+            <span className="text-purple-300"> &gt;</span>
+          </a>
         </div>
       </div>
     </>
