@@ -56,7 +56,7 @@ const ProjectsSection = forwardRef((props , ref) => {
     ref={ref}
      id="Projects"
     className="font-[Yuyu]">
-      <div className="flex flex-col lg:flex-row  justify-between px-7 py-4 gap-5">
+      <div className="flex flex-col lg:flex-row  justify-between px-3 py-4 gap-5">
         <ContentCard
           capsuleData={"Projects"}
           description={

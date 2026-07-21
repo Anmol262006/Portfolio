@@ -76,7 +76,7 @@ useEffect(() => {
         <Navbar nav={nav} setNav={setNav} />
 
         {/* Content */}
-        <main className="relative z-10 lg:max-w-7xl min-h-screen lg:px-18 lg:py-10 py-7 mt-10">
+        <main className="relative z-10 lg:max-w-7xl min-h-screen lg:px-16 lg:py-10 py-7 mt-10">
           <Suspense fallback={<HeroSkeleton />}>
             <HeroSection />
           </Suspense>

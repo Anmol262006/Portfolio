@@ -16,9 +16,9 @@ const StatsCard = ({
   return (
     <div className="py-10 font-[Yuyu]">
       <div
-        className="border-2 border-dotted border-violet-800 rounded-2xl px-6 py-7 w-fit
+        className="border-2 border-dotted border-violet-800 rounded-2xl lg:px-6 py-7 px-5 w-fit
                    flex flex-col lg:flex-row
-                   items-center gap-6 mx-auto"
+                   items-center lg:gap-6 gap-3 mx-auto"
         style={{
           boxShadow: "0 0 10px green, 0 0 20px blue",
         }}

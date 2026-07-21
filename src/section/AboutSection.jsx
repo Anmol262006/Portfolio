@@ -52,7 +52,7 @@ const AboutSection = forwardRef((props,ref) => {
     <section
       id="About"
       ref={ref}
-     className="relative h-fit w-full overflow-hidden px-5 py-10">
+     className="relative h-fit w-full overflow-hidden px-3 py-10">
       <motion.div 
         variants={containerVariants}
         initial="hidden"
