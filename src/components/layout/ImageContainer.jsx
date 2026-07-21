@@ -1,5 +1,5 @@
 import React from "react";
-import profilePic from "../../assets/profile/Portfoliohero.webp";
+import profilePic from "../../assets/profile/portfoliopi.webp";
 import { motion } from "framer-motion";
 
 const ImageContainer = () => {
