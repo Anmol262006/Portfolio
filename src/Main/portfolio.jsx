@@ -16,7 +16,6 @@ const portfolio = () => {
 useEffect(() => {
   const observed = new Set();
 
-  console.log(observed)
 
   const intersectionObserver = new IntersectionObserver(
     (entries) => {
@@ -33,7 +32,7 @@ useEffect(() => {
     }
   );
 
-  console.log(intersectionObserver)
+
 
   // Jo sections already DOM me hain unhe turant observe karo
   const observeExisting = () => {

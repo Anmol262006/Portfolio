@@ -1,4 +1,5 @@
 import React from "react";
+import PlatformLogo from "../components/ui/platformLogo";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaTelegramPlane } from "react-icons/fa";
 import { RiGithubFill, RiInstagramLine, RiLinkedinBoxFill, RiWhatsappFill, Ri24HoursLine } from "react-icons/ri";
 
@@ -78,18 +79,25 @@ const Footer = () => {
           
           {/* Social Media Row */}
           <div className="flex items-center gap-3">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-white hover:border-purple-500 transition-all" aria-label="GitHub">
-              <RiGithubFill size={20} />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-purple-400 hover:border-purple-500 transition-all" aria-label="Instagram">
-              <RiInstagramLine size={20} />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-blue-400 hover:border-purple-500 transition-all" aria-label="LinkedIn">
-              <RiLinkedinBoxFill size={20} />
-            </a>
-            <a href="https://whatsapp.com" target="_blank" rel="noreferrer" className="w-10 h-10 flex items-center justify-center rounded-full bg-zinc-900 border border-zinc-800 text-gray-400 hover:text-emerald-400 hover:border-purple-500 transition-all" aria-label="WhatsApp">
-              <RiWhatsappFill size={20} />
-            </a>
+            <PlatformLogo
+            Logo={<RiGithubFill size={28} />}
+            url={"https://github.com/Anmol262006/"}
+          />
+          <PlatformLogo
+            Logo={<RiInstagramLine size={28} color={"purple"} />}
+            url={"https://www.instagram.com/anmoll_2005_26/"}
+          />
+          <PlatformLogo
+            Logo={<RiLinkedinBoxFill size={28} color="blue" />}
+            url={"https://www.linkedin.com/in/anmol-kumar-725022262/"}
+          />
+          <PlatformLogo
+            Logo={<RiWhatsappFill size={28} color="green" />}
+            url={
+              "https://wa.me/918091308651?text=Hi%20Anmol%2C%20I%20saw%20your%20portfolio!"
+            }
+          />
+          <PlatformLogo Logo={<Ri24HoursLine size={28} />} />
           </div>
 
           {/* Copyright Text */}
