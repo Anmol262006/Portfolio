@@ -1,5 +1,6 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useRef } from "react";
 import { color, motion } from "framer-motion";
+import emailjs from "@emailjs/browser"
 import {
   FaEnvelope,
   FaPhoneAlt,
@@ -23,6 +24,33 @@ import ChannelCard from "../components/ui/ChannelCard";
 import PlatformLogo from "../components/ui/platformLogo";
 
 const ContactSection = forwardRef((props, ref) => {
+  const formref = useRef();
+  const [status , setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault() ;
+    setStatus("sending") ;
+    
+    emailjs.sendForm(
+       import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formref.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+      setStatus("success");
+      formref.current.reset()
+    })
+    .catch((error) =>{
+       console.error(error);
+       setStatus("error");
+    })
+    
+  }
+
+
+
+
   return (
     <section
       id="Contact"
@@ -107,8 +135,9 @@ const ContactSection = forwardRef((props, ref) => {
 
           {/* Contact Form */}
           <form
+            ref={formref}
             className="flex flex-col gap-5 w-full"
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
           >
             {/* Row 1: Name and Email */}
             <div className="flex flex-col sm:flex-row gap-4 w-full">
@@ -135,6 +164,7 @@ const ContactSection = forwardRef((props, ref) => {
                   Your Email
                 </label>
                 <input
+                  name="email"
                   type="email"
                   id="email"
                   placeholder="Enter Your Email"
@@ -154,6 +184,7 @@ const ContactSection = forwardRef((props, ref) => {
               <input
                 type="text"
                 id="subject"
+                name="subject"
                 placeholder="What is this regarding?"
                 className="w-full h-11 px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-100 transition-all text-sm bg-gray-50/50"
               />
@@ -169,6 +200,7 @@ const ContactSection = forwardRef((props, ref) => {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
                 placeholder="Type your message here..."
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-100 transition-all text-sm bg-gray-50/50 resize-none"
@@ -180,7 +212,7 @@ const ContactSection = forwardRef((props, ref) => {
               type="submit"
               className="w-full mt-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-6 rounded-xl transition-all shadow-md shadow-purple-200 hover:shadow-none flex items-center justify-center gap-2 cursor-pointer"
             >
-              <span>Send Message</span>
+              <span>{status === "sending" ? "Sending..." : "Send Message"}</span>
             </button>
           </form>
         </div>
